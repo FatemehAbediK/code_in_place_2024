@@ -1,0 +1,34 @@
+def main():
+    translations = {
+        "hello": "hola",
+        "dog": "perro",
+        "cat": "gato",
+        "well": "bien",
+        "us": "nos",
+        "nothing": "nada",
+        "house": "casa",
+        "time": "tiempo"
+    }
+    
+    score=0
+    total_guesses = len(translations)
+
+    for eng,span in translations.items():
+        #asks user
+        user_input = input(f"What is the Spanish translation for {eng}?")
+
+        #checks if it's correct
+        if user_input == translations[eng]:
+            print("That is correct!")
+            score +=1
+        else:
+            print(f"That is incorrect, the Spanish translation for {eng} is {span}.")
+
+        print("")
+
+    print("You got",score,"/",total_guesses,"words correct, come study again soon!")
+
+
+
+if __name__ == '__main__':
+    main()
