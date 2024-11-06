@@ -1,0 +1,63 @@
+import random
+
+# add user input for num_pairs and 
+NUM_PAIRS = 3
+
+def main():
+    truth=my_list()
+    random.shuffle(truth)
+    #print(truth)            #make into comment..just for checking!
+
+    displayed_list=[]
+    for i in range(len(truth)):
+        displayed_list.append('*')
+    print(displayed_list)
+
+    while '*' in displayed_list:
+        x,y = get_valid_index()
+        
+        if x != y:
+            if check_index(truth,x,y):
+                print("Match")
+                displayed_list[x]=truth[x]
+                displayed_list[y]=truth[y]
+            else:
+                print(f"Value at index {x} is {truth[x]} .")
+                print(f"Value at index {y} is {truth[y]} .")
+                print("No match. Try again. ")
+        else:
+            print("You entered the same index twice. Try again.")
+
+        enter=input("Press Enter to continue... ")
+        clear_terminal()
+        print(displayed_list)
+
+    print('Congratulations! You won!')
+
+def check_index(my_list,x,y):
+    return my_list[x] == my_list[y]
+        
+
+#asks for valid index
+def get_valid_index():
+    x=int(input("Enter an index: "))
+    y=int(input("Enter an index: "))
+    
+    return x,y
+        
+
+#making the list
+def my_list():
+    my_list=[]
+    for j in range(NUM_PAIRS):
+        for i in range(2):
+            my_list.append(j)
+    return my_list
+
+
+def clear_terminal():
+    for i in range(20):
+      print('\n')
+
+if __name__ == '__main__':
+    main()
