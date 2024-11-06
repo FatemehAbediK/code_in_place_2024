@@ -1,0 +1,18 @@
+
+# Write your helper function here!
+
+def print_ones_digit(x):
+    return x % 10
+
+def main():
+    num = int(input("Enter a number: "))
+    # Call your helper function with `num` as a parameter!
+    
+    one_digit= print_ones_digit(num)
+
+    print("The ones digit is",one_digit)
+    
+# There is no need to edit code beyond this point
+
+if __name__ == '__main__':
+    main()
