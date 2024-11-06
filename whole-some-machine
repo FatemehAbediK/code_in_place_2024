@@ -1,0 +1,18 @@
+
+
+AFFIRMATION = "I am capable of doing anything I put my mind to."
+
+def main():
+    print("Please type the following affirmation:", AFFIRMATION)
+    x=input()
+    while x != AFFIRMATION :
+        print("That was not the affirmation. ")
+        print("Please type the following affirmation:", AFFIRMATION)
+        x=input()
+    print("That's right! :)")
+
+
+# There is no need to edit code beyond this point
+
+if __name__ == '__main__':
+    main()
