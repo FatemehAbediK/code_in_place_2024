@@ -1,0 +1,20 @@
+
+# Write your function here!
+def print_divisors(x):
+
+    for i in range(1,x+1):
+        if  x % i == 0:
+            print(i)
+
+
+def main():
+    num = int(input("Enter a number: "))
+    # Call your function here with `num` as a parameter!
+
+    print("Here are the divisors of",num)
+    print_divisors(num)
+
+# There is no need to edit code beyond this point
+
+if __name__ == '__main__':
+    main()
