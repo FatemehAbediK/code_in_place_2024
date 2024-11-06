@@ -1,0 +1,28 @@
+from graphics import Canvas
+
+def main():
+    CANVAS_WIDTH = 300     # Width of drawing canvas in pixels
+    CANVAS_HEIGHT = 300     # Height of drawing canvas in pixels
+
+    BRICK_WIDTH	= 30        # The width of each brick in pixels
+    BRICK_HEIGHT = 12       # The height of each brick in pixels
+    BRICKS_IN_BASE = 10     # The number of bricks in the base  
+    canvas = Canvas(CANVAS_WIDTH, CANVAS_HEIGHT)
+
+    for j in range(BRICKS_IN_BASE):
+        start_x=(CANVAS_WIDTH - (BRICKS_IN_BASE - j)* BRICK_WIDTH)/2
+        start_y=(j+1)*BRICK_HEIGHT
+        one_row_rectangle(canvas,BRICKS_IN_BASE,BRICK_HEIGHT,BRICK_WIDTH,CANVAS_HEIGHT,start_x,start_y,j)
+
+def one_row_rectangle(canvas,BRICKS_IN_BASE,BRICK_HEIGHT,BRICK_WIDTH,CANVAS_HEIGHT,start_x,start_y,j):
+    for i in range(BRICKS_IN_BASE - j):
+        start_x_rect=start_x + BRICK_WIDTH * i
+        start_y_rect=CANVAS_HEIGHT - start_y
+        end_x=start_x_rect + BRICK_WIDTH
+        end_y=start_y_rect+ BRICK_HEIGHT
+
+        canvas.create_rectangle(start_x_rect,start_y_rect,end_x,end_y,"yellow" , "black")
+
+
+if __name__ == '__main__':
+    main()
