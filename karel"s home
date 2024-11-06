@@ -1,0 +1,71 @@
+from karel.stanfordkarel import *
+
+# File: shelter.py
+# -----------------------------
+# The warmup program defines a "main"
+# function which should make Karel 
+# move to the beeper, pick it up, and
+# return home.
+
+def find_way():
+    while front_is_clear():
+        move()
+        if front_is_blocked():
+            turn_around()
+
+            while right_is_blocked() and front_is_clear():
+                move()
+            turn_left()
+ 
+def main():
+    find_way()
+
+    """
+    second way:
+
+    #come_down()
+    come_down()
+
+    #move to door()
+    move_three_steps()
+
+    #pick beeper
+    pick_beeper()
+
+    #turn back
+    turn_around()
+    move_three_steps()
+    
+    #go up
+    go_up()
+    """
+
+def go_up():
+    turn_right()
+    move()
+    turn_right()
+
+def move_three_steps():
+     for i in range(3):
+        move()
+
+def come_down():
+    turn_right()
+    move()
+    turn_left()
+
+def turn_around():
+    for i in range(2):
+        turn_left()
+
+def turn_right():
+    for i in range(3):
+        turn_left()
+  
+    
+    
+    
+# don't edit these next two lines
+# they tell python to run your main function
+if __name__ == '__main__':
+    main()
