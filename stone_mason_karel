@@ -1,0 +1,50 @@
+from karel.stanfordkarel import *
+
+"""
+File: main.py
+--------------------
+When you finish writing this file, Karel should have repaired 
+each of the columns in the temple
+"""
+
+def main():
+    while front_is_clear():
+        #make column
+        make_column()
+        #move 4 steps
+        move_four_steps()
+    make_column()
+
+def make_column():
+    turn_left()
+    #go up
+    build_colomn()
+    #come down
+    come_down()
+    turn_left()
+
+def move_four_steps():
+    for i in range(4):
+        move()
+
+def build_colomn():
+    for i in range(4):
+        put_beeper()
+        move()
+    put_beeper()
+
+def come_down():
+    turn_around()
+    while front_is_clear():
+        move()
+
+def turn_around():
+    for i in range(2):
+        turn_left()
+
+def turn_right():
+    for i in range(3):
+        turn_left()
+
+if __name__ == '__main__':
+    main()
