@@ -1,0 +1,43 @@
+from graphics import Canvas
+
+def main():
+    
+    # each patch is a square with this width and height:
+    PATCH_SIZE = 100
+    CANVAS_WIDTH = 400
+    CANVAS_HEIGHT = 400
+
+    canvas = Canvas(CANVAS_WIDTH, CANVAS_HEIGHT)
+
+    n_patch_row=CANVAS_WIDTH // PATCH_SIZE
+    n_patch_column=CANVAS_HEIGHT // PATCH_SIZE
+
+    for r in range(n_patch_column):
+        for c in range(n_patch_row):
+            start_x=c * PATCH_SIZE
+            start_y= r * PATCH_SIZE
+            end_x=start_x + PATCH_SIZE
+            end_y= start_y + PATCH_SIZE
+
+            if is_even(r,c):
+                draw_square_patch(canvas, start_x, start_y,end_x,end_y)
+            else:
+                draw_circle_patch(canvas, start_x, start_y,end_x,end_y)
+
+def is_even(a,b):
+    return (a+b)%2 == 0
+
+def draw_circle_patch(canvas, start_x, start_y,end_x,end_y):
+    canvas.create_oval(start_x, start_y, end_x, end_y, 'salmon')
+
+def draw_square_patch(canvas, start_x, start_y,end_x,end_y):
+    inset = 20
+
+    # first draw a purple square over the entire patch
+    canvas.create_rectangle(start_x, start_y, end_x, end_y, 'purple')
+    # then draw a smaller white square on top
+    canvas.create_rectangle(start_x+inset, start_y+inset, 
+        end_x-inset, end_y-inset, 'white')
+    
+if __name__ == '__main__':
+    main()
