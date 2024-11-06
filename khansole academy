@@ -1,0 +1,28 @@
+import random
+
+def main():
+    print("Khansole Academy")
+    correct_answer =  0
+    while correct_answer <3:
+        
+        num_1 = random.randint(10,100)
+        num_2 = random.randint(10,100)
+        total =num_1 + num_2 
+
+        print("what is" , num_1 , "+" , num_2)
+        user_input =int(input("your answer: "))
+        
+        if user_input == total :
+            print("Correct!")
+            correct_answer +=1
+            print("You've gotten" , correct_answer, "correct in a row.")
+        else:
+            print("Incorrect.")
+            print("The expected answer is", total)
+            correct_answer = 0
+
+    print("Congratulations! You mastered addition.")
+
+
+if __name__ == '__main__':
+    main()
