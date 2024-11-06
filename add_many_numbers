@@ -1,0 +1,18 @@
+
+def add_many_numbers(numbers):
+    total=0
+    #return sum of lists items
+    for item in numbers:
+        total += item
+    return total
+
+# There is no need to edit code beyond this point
+
+def main():
+    numbers = [1, 2, 3, 4, 5]  # Make a list of numbers
+    sum_of_numbers = add_many_numbers(numbers)  # Find the sum of the list
+    print(sum_of_numbers)  # Print out the sum above
+    
+
+if __name__ == '__main__':
+    main()
