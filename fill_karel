@@ -1,0 +1,50 @@
+from karel.stanfordkarel import *
+
+     
+def put_beepers_in_row():
+    put_beeper()
+    move()
+
+
+def turn_around():
+    for i in range(2):
+        turn_left()
+
+
+def turn_right():
+    for i in range(3):
+        turn_left()
+
+
+def fill_row():
+    while front_is_clear():
+        put_beepers_in_row()
+    put_beeper()
+    turn_around()
+    while front_is_clear():
+        move()
+
+
+def fill_last_row():
+    while front_is_clear():
+        put_beepers_in_row()
+    put_beeper()
+        
+
+
+def rotate():
+    turn_right()
+    if front_is_clear():
+        move()
+        turn_right()
+    
+def main():
+    while left_is_clear():
+        fill_row()
+        rotate()
+    fill_last_row()
+        
+if __name__ == '__main__':
+    main()              
+
+   
